@@ -1,0 +1,125 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+  }
+  
+  .login-container {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .left-section {
+    flex: 1;
+    background-color: #61A6A0; /* Color celeste */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 100vh; /* Altura completa */
+    clip-path: path("M 0 0 C 70% 0, 60% 50%, 100% 50% C 60% 50%, 70% 100%, 0 100%");
+}
+
+  .left-section .branding {
+    text-align: center;
+    color: white;
+    font-size: 1rem; /* Tamaño del texto inicial */
+    letter-spacing: 15px; /* Espaciado entre letras */
+  }
+
+  .left-section .branding h1 {
+    margin: 0; /* Elimina márgenes predeterminados */
+    padding-bottom: 3px; /* Ajusta el espacio entre el texto y la imagen */
+    font-size: 9rem; /* Tamaño de letra para el h1 */
+    font-weight: bold;
+    font-family: "Palatino Linotype", "Book Antiqua", serif;
+  }
+
+  .left-section .branding img {
+    width: 500px; /* Tamaño ajustado para la imagen */
+    height: auto; /* Mantiene proporciones originales */
+    display: block; /* Evita espacio extra debajo de la imagen */
+    margin: 0 auto; /* Centra la imagen */
+  }
+
+  
+  .right-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #EDEDED;
+  }
+  
+  .login-box {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0px 10px 16px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    transform: scale(1.4); /* Escala el contenido un 20% más grande */
+
+  }
+  
+  .login-box .logo {
+    width: 80px;
+    margin-bottom: 1rem;
+  }
+  
+  .login-box h2 {
+    margin-bottom: 1rem;
+  }
+  
+  .login-box p {
+    margin-bottom: 1.5rem;
+    color: #666;
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .error-message {
+    color: red;
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+    display: none;
+  }
+  
+  button {
+    background: linear-gradient(to bottom, #697133, #808642);;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    width: 333px;
+  }
+  
+  button:hover {
+    background-color: #5CA2A3;
+  }
+  

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Socios - Asociación Inmaculada Concepción</title>
+  <link rel="stylesheet" href="../css/socio.css">
+</head>
+<body>
+  <div class="main-container">
+    <!-- Barra lateral -->
+    <aside class="sidebar">
+      <div class="logo">
+        <img src="../assets/imagenes/socio-casas.png" alt="Logo Asociación">
+      </div>
+      <nav class="menu">
+        <ul>
+          <li class="menu-item active">
+            <div class="menu-icon">
+              <img src="../assets/imagenes/socio-socios.png" alt="Icono Socios">
+            </div>
+            <span>Socios</span>
+          </li>
+          <li class="menu-item">
+            <div class="menu-icon">
+              <img src="../assets/imagenes/socio-pagar.png" alt="Icono Pagar Servicio">
+            </div>
+            <span>Pagar Servicio</span>
+          </li>
+        </ul>
+      </nav>
+      <button class="logout-btn">
+        <i class="icon icon-logout"></i>
+        Cerrar sesión
+      </button>
+    </aside>
+
+    <!-- Contenido principal -->
+    <section class="content">
+      <header>
+        <h1>Bienvenido, admin!</h1>
+      </header>
+      <div class="actions">
+        <h2>Lista de Socios</h2>
+        <button class="create-btn">
+          <i class="icon icon-add"></i>
+          Crear socio
+        </button>
+      </div>
+      <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Escriba el texto a buscar">
+        <button id="searchButton">Buscar socio</button>
+      </div>
+      <div class="table-container">
+        <table class="socios-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombres</th>
+              <th>Apellidos</th>
+              <th>Teléfono</th>
+              <th>Negocio</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody">
+            <!-- Aquí se cargarán dinámicamente las filas -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <!-- Ventana modal de búsqueda fallida -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <button id="closeModal" class="close-modal">X</button>
+      <p>No se han encontrado registros de su búsqueda</p>
+    </div>
+  </div>
+
+  <script src="../js/socio.js"></script>
+</body>
+</html>
