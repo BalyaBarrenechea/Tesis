@@ -1,24 +1,21 @@
 document.addEventListener('DOMContentLoaded', async () => {
-  const searchInput = document.getElementById('searchInput');
-  const searchButton = document.getElementById('searchButton');
-  const modal = document.getElementById('modal');
-  const closeModal = document.getElementById('closeModal');
+  const modalRegistrarSocio = document.getElementById('modalRegistrarSocio');
+  const formRegistrarSocio = document.getElementById('formRegistrarSocio');
+  const cancelarRegistro = document.getElementById('cancelarRegistro');
+  const btnCrearSocio = document.querySelector('.create-btn');
   const tableBody = document.getElementById('tableBody');
-  const menuSocios = document.getElementById('menu-socios');
-  const menuPagar = document.getElementById('menu-pagar');
 
-  // Variable para almacenar los datos cargados del archivo JSON
   let socios = [];
 
   // Función para cargar los datos desde un archivo JSON
   const cargarSocios = async () => {
     try {
-      const response = await fetch('../data/socios.json'); // Verifica la ruta
+      const response = await fetch('../data/socios.json'); // Verifica la ruta correcta
       if (!response.ok) {
-        throw new Error(`Error HTTP: ${response.status}`);
+        throw new Error(`Error al cargar JSON: ${response.status}`);
       }
       socios = await response.json();
-      renderTable(socios); // Renderizar la tabla inicial con los datos cargados
+      renderTable(socios); // Renderizar los datos iniciales
     } catch (error) {
       console.error('Error al cargar los datos del archivo JSON:', error);
     }
@@ -26,7 +23,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // Función para renderizar la tabla
   const renderTable = (data) => {
-    tableBody.innerHTML = ''; // Limpia la tabla antes de renderizar
+    tableBody.innerHTML = '';
     data.forEach((socio) => {
       tableBody.innerHTML += `
         <tr>
@@ -45,42 +42,41 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   };
 
-  // Funcionalidad de búsqueda
-  searchButton.addEventListener('click', () => {
-    const searchText = searchInput.value.toLowerCase();
-
-    // Filtra los datos que contengan el texto en algún campo
-    const filtered = socios.filter(
-      (socio) =>
-        socio.nombre.toLowerCase().includes(searchText) ||
-        socio.apellido.toLowerCase().includes(searchText) ||
-        socio.telefono.toLowerCase().includes(searchText) ||
-        socio.negocio.toLowerCase().includes(searchText)
-    );
-
-    // Si no hay resultados, muestra el modal
-    if (filtered.length === 0) {
-      modal.classList.remove('hidden');
-    } else {
-      renderTable(filtered); // Renderiza solo los resultados
-    }
+  // Mostrar modal para registrar socio
+  btnCrearSocio.addEventListener('click', () => {
+    modalRegistrarSocio.classList.remove('hidden');
   });
 
-  // Cerrar modal
-  closeModal.addEventListener('click', () => {
-    modal.classList.add('hidden');
+  // Cerrar modal al cancelar
+  cancelarRegistro.addEventListener('click', () => {
+    modalRegistrarSocio.classList.add('hidden');
+    formRegistrarSocio.reset();
   });
 
-  // Redirección a "Socios"
-  menuSocios.addEventListener('click', () => {
-    window.location.href = 'socio.html'; // Redirige a la interfaz de Socios
+  // Procesar formulario de registro
+  formRegistrarSocio.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const nuevoSocio = {
+      id: socios.length + 1,
+      nombre: formRegistrarSocio.nombre.value,
+      apellido: formRegistrarSocio.apellido.value,
+      dni: formRegistrarSocio.dni.value,
+      domicilio: formRegistrarSocio.domicilio.value,
+      correo: formRegistrarSocio.correo.value,
+      negocio: formRegistrarSocio.asociacion.value,
+      telefono: formRegistrarSocio.telefono.value,
+      edad: formRegistrarSocio.edad.value,
+      genero: formRegistrarSocio.genero.value,
+    };
+
+    socios.push(nuevoSocio);
+    renderTable(socios);
+
+    modalRegistrarSocio.classList.add('hidden');
+    formRegistrarSocio.reset();
   });
 
-  // Redirección a "Pagar Servicio"
-  menuPagar.addEventListener('click', () => {
-    window.location.href = 'pagar.html'; // Redirige a la interfaz de Pagar Servicio
-  });
-
-  // Cargar los datos al cargar la página
+  // Cargar los datos al iniciar
   await cargarSocios();
 });

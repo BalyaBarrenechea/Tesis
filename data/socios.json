@@ -19,5 +19,68 @@
     "apellido": "Lopez",
     "telefono": "567890123",
     "negocio": "Ferretería Carlitos"
+  },
+  {
+    "id": 2,
+    "nombre": "Ana",
+    "apellido": "Gómez",
+    "telefono": "987654321",
+    "negocio": "Restaurante La Delicia"
+  },
+  {
+    "id": 3,
+    "nombre": "Carlos",
+    "apellido": "Lopez",
+    "telefono": "567890123",
+    "negocio": "Ferretería Carlitos"
+  },
+  {
+    "id": 2,
+    "nombre": "Ana",
+    "apellido": "Gómez",
+    "telefono": "987654321",
+    "negocio": "Restaurante La Delicia"
+  },
+  {
+    "id": 3,
+    "nombre": "Carlos",
+    "apellido": "Lopez",
+    "telefono": "567890123",
+    "negocio": "Ferretería Carlitos"
+  },
+  {
+    "id": 2,
+    "nombre": "Ana",
+    "apellido": "Gómez",
+    "telefono": "987654321",
+    "negocio": "Restaurante La Delicia"
+  },
+  {
+    "id": 3,
+    "nombre": "Carlos",
+    "apellido": "Lopez",
+    "telefono": "567890123",
+    "negocio": "Ferretería Carlitos"
+  },
+  {
+    "id": 2,
+    "nombre": "Ana",
+    "apellido": "Gómez",
+    "telefono": "987654321",
+    "negocio": "Restaurante La Delicia"
+  },
+  {
+    "id": 3,
+    "nombre": "Carlos",
+    "apellido": "Lopez",
+    "telefono": "567890123",
+    "negocio": "Ferretería Carlitos"
+  },
+  {
+    "id": 6,
+    "nombre": "Juan",
+    "apellido": "Pérez",
+    "telefono": "123456789",
+    "negocio": "Tienda Juanito"
   }
 ]
