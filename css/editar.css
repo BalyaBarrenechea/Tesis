@@ -1,0 +1,241 @@
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    display: flex;
+    background-color: white;
+  }
+  
+  .main-container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    width: 20%;
+    background-color: white;
+    border-right: 1px solid #ddd;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  
+  /* Logo */
+  .sidebar .logo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem; /* Espaciado uniforme */
+  }
+  
+  .sidebar .logo img {
+    width: 400px;
+    height: auto;
+    margin-bottom: 1rem;
+  }
+  
+  /* Menú */
+  .sidebar .menu {
+    width: 100%;
+  }
+  
+  .sidebar .menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .sidebar .menu-item {
+    display: flex;
+    align-items: center;
+    padding: 0.8rem 1rem;
+    cursor: pointer;
+    color: #333;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 1rem; /* Espaciado entre ítems */
+  }
+  
+  .sidebar .menu-item:hover {
+    background-color: #f0f0f0;
+    color: #61A6A0;
+  }
+  
+  .sidebar .menu-item.active {
+    background-color: #61A6A0;
+    color: white;
+  }
+  
+  .sidebar .menu-item .menu-icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 1rem; /* Separación entre icono y texto */
+  }
+  
+  .sidebar .menu-item .menu-icon img {
+    width: 100%;
+    height: auto;
+  }
+  
+  /* Botón de cerrar sesión */
+.logout-btn {
+    width: 100%;
+    background-color: #7b9e43;
+    color: white;
+    border: none;
+    padding: 0.8rem 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: auto; /* Posicionar al final de la barra */
+  }
+  
+  .logout-btn:hover {
+    background-color: #6b8e3b;
+  }
+
+  /* Contenido principal */
+  .content {
+    flex: 1;
+    padding: 2rem;
+  }
+  
+  .edit-container {
+    display: flex;
+    gap: 2rem;
+  }
+  
+  /* Tarjeta del perfil */
+  .profile-card {
+    background-color: #D9EAE8;
+    padding: 2rem; /* Incrementa el relleno interno del recuadro */
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 10px 16px rgba(0, 0, 0, 0.2);
+    width: 400px; /* Incrementa el ancho del recuadro */
+    height: 500px; /* Incrementa la altura del recuadro */
+    margin-top: 2.5rem; /* Añade espacio por encima del recuadro */
+    margin-left: 2rem;
+    margin-right: 2rem; 
+  }
+
+  .profile-card h2 {
+    font-size: 2.5rem; /* Incrementa el tamaño del texto */
+    margin-bottom: 3.5rem; /* Añade espacio entre el texto y la imagen */
+  }
+  
+  .profile-card .profile-img {
+    width: 270px; /* Incrementa el ancho de la imagen */
+    height: 270px; /* Incrementa la altura de la imagen */
+    border-radius: 50%; /* Mantiene la forma circular */
+  }
+  
+  /* Formulario de edición */
+  .edit-form label {
+    display: block;
+    margin: 0.5rem 0 0.2rem;
+  }
+  
+  .edit-form input, .edit-form select {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+/* Tarjeta de datos personales */
+.personal-data-card {
+  background-color: #D9EAE8;
+  border-radius: 10px;
+  box-shadow: 0px 10px 16px rgba(0, 0, 0, 0.2);
+  height: 700px; /* Incrementa la altura del recuadro */
+  padding: 2rem;
+  margin-top: 2.5rem;
+  flex: 1;
+  margin-right: 2rem;
+}
+
+.personal-data-card h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+/* Botones */
+.add-btn {
+  background-color: #61a6a0;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-btn:hover {
+  background-color: #4e8683;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}
+
+.delete-btn {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.save-btn {
+  background-color: #2ecc71;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+  

@@ -1,69 +1,82 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const searchInput = document.getElementById('searchInput');
-    const searchButton = document.getElementById('searchButton');
-    const modal = document.getElementById('modal');
-    const closeModal = document.getElementById('closeModal');
-    const tableBody = document.getElementById('tableBody');
-    const menuSocios = document.getElementById('menu-socios');
-    const menuPagar = document.getElementById('menu-pagar');
-  
-    // Base de datos simulada
-    const socios = [
-      { id: 1, nombre: 'Juan', apellido: 'Pérez', telefono: '123456', negocio: 'Negocio A' },
-      // Añade más registros aquí
-    ];
-  
-    // Función para renderizar la tabla
-    const renderTable = (data) => {
-      tableBody.innerHTML = '';
-      data.forEach((socio) => {
-        tableBody.innerHTML += `
-          <tr>
-            <td>${socio.id}</td>
-            <td>${socio.nombre}</td>
-            <td>${socio.apellido}</td>
-            <td>${socio.telefono}</td>
-            <td>${socio.negocio}</td>
-            <td>
-              <button class="view-btn">Ver perfil</button>
-              <button class="edit-btn">Editar</button>
-              <button class="delete-btn">Eliminar</button>
-            </td>
-          </tr>
-        `;
-      });
-    };
-  
-    // Renderizar la tabla inicial
-    renderTable(socios);
-  
-    // Funcionalidad de búsqueda
-    searchButton.addEventListener('click', () => {
-      const searchText = searchInput.value.toLowerCase();
-      const filtered = socios.filter(socio =>
-        socio.nombre.toLowerCase().includes(searchText)
-      );
-  
-      if (filtered.length === 0) {
-        modal.classList.remove('hidden');
-      } else {
-        renderTable(filtered);
+document.addEventListener('DOMContentLoaded', async () => {
+  const modalRegistrarSocio = document.getElementById('modalRegistrarSocio');
+  const formRegistrarSocio = document.getElementById('formRegistrarSocio');
+  const cancelarRegistro = document.getElementById('cancelarRegistro');
+  const btnCrearSocio = document.querySelector('.create-btn');
+  const tableBody = document.getElementById('tableBody');
+
+  let socios = [];
+
+  // Función para cargar los datos desde un archivo JSON
+  const cargarSocios = async () => {
+    try {
+      const response = await fetch('../data/socios.json'); // Verifica la ruta correcta
+      if (!response.ok) {
+        throw new Error(`Error al cargar JSON: ${response.status}`);
       }
+      socios = await response.json();
+      renderTable(socios); // Renderizar los datos iniciales
+    } catch (error) {
+      console.error('Error al cargar los datos del archivo JSON:', error);
+    }
+  };
+
+  // Función para renderizar la tabla
+  const renderTable = (data) => {
+    tableBody.innerHTML = '';
+    data.forEach((socio) => {
+      tableBody.innerHTML += `
+        <tr>
+          <td>${socio.id}</td>
+          <td>${socio.nombre}</td>
+          <td>${socio.apellido}</td>
+          <td>${socio.telefono}</td>
+          <td>${socio.negocio}</td>
+          <td>
+            <button class="view-btn">Ver perfil</button>
+            <button class="edit-btn">Editar</button>
+            <button class="delete-btn">Eliminar</button>
+          </td>
+        </tr>
+      `;
     });
-  
-    // Cerrar modal
-    closeModal.addEventListener('click', () => {
-      modal.classList.add('hidden');
-    });
-  
-    // Redirección a "Socios"
-    menuSocios.addEventListener('click', () => {
-      window.location.href = 'socio.html'; // Redirige a la interfaz de Socios
-    });
-  
-    // Redirección a "Pagar Servicio"
-    menuPagar.addEventListener('click', () => {
-      window.location.href = 'pagar.html'; // Redirige a la interfaz de Pagar Servicio
-    });
+  };
+
+  // Mostrar modal para registrar socio
+  btnCrearSocio.addEventListener('click', () => {
+    modalRegistrarSocio.classList.remove('hidden');
   });
-  
+
+  // Cerrar modal al cancelar
+  cancelarRegistro.addEventListener('click', () => {
+    modalRegistrarSocio.classList.add('hidden');
+    formRegistrarSocio.reset();
+  });
+
+  // Procesar formulario de registro
+  formRegistrarSocio.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const nuevoSocio = {
+      id: socios.length + 1,
+      nombre: formRegistrarSocio.nombre.value,
+      apellido: formRegistrarSocio.apellido.value,
+      dni: formRegistrarSocio.dni.value,
+      domicilio: formRegistrarSocio.domicilio.value,
+      correo: formRegistrarSocio.correo.value,
+      negocio: formRegistrarSocio.asociacion.value,
+      telefono: formRegistrarSocio.telefono.value,
+      edad: formRegistrarSocio.edad.value,
+      genero: formRegistrarSocio.genero.value,
+    };
+
+    socios.push(nuevoSocio);
+    renderTable(socios);
+
+    modalRegistrarSocio.classList.add('hidden');
+    formRegistrarSocio.reset();
+  });
+
+  // Cargar los datos al iniciar
+  await cargarSocios();
+});

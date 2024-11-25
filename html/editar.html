@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editar Socio - Asociación Inmaculada Concepción</title>
+  <link rel="stylesheet" href="../css/editar.css">
+</head>
+<body>
+  <div class="main-container">
+    <!-- Barra lateral -->
+    <aside class="sidebar">
+      <div class="logo">
+        <img src="../assets/imagenes/socio-casas.png" alt="Logo Asociación">
+      </div>
+      <nav class="menu">
+        <ul>
+          <li id="menu-socios" class="menu-item active">
+            <div class="menu-icon">
+              <img src="../assets/imagenes/socio-socios.png" alt="Icono Socios">
+            </div>
+            <span>Socios</span>
+          </li>
+          <li id="menu-pagar" class="menu-item">
+            <div class="menu-icon">
+              <img src="../assets/imagenes/socio-pagar.png" alt="Icono Pagar Servicio">
+            </div>
+            <span>Pagar Servicio</span>
+          </li>
+        </ul>
+      </nav>
+      <button class="logout-btn">
+        <i class="icon icon-logout"></i> 
+        Cerrar sesión 
+      </button> 
+    </aside>
+
+    <!-- Contenido principal -->
+    <section class="content">
+      <header>
+        <h1>Editar Socio</h1>
+      </header>
+      <div class="edit-container">
+        <!-- Foto y nombre del socio -->
+        <div class="profile-card">
+          <h2>JeffMusicMan</h2>
+          <img src="../assets/imagenes/avatar.png" alt="Foto del socio" class="profile-img">          
+        </div>
+
+    <!-- Formulario de edición -->
+    <div class="personal-data-card">
+      <h2>Datos Personales</h2>
+      <form id="editForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" value="JeffMusicMan">
+          </div>
+          <div class="form-group">
+            <label for="apellido">Apellido</label>
+            <input type="text" id="apellido" value="Jeff Magallanes">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="domicilio">Domicilio</label>
+          <input type="text" id="domicilio" value="Kraków, Polska">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="dni">DNI</label>
+            <input type="text" id="dni" value="12345678">
+          </div>
+          <div class="form-group">
+            <label for="fechaNacimiento">Fecha de nacimiento</label>
+            <input type="date" id="fechaNacimiento" value="2002-12-01">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="correo">Correo</label>
+          <input type="email" id="correo" value="jeffmusicman@gmail.com">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="telefono">Teléfono</label>
+            <input type="text" id="telefono" value="(+51) 123 456 789">
+          </div>
+          <div class="form-group">
+            <label for="genero">Género</label>
+            <select id="genero">
+              <option value="masculino" selected>Masculino</option>
+              <option value="femenino">Femenino</option>
+              <option value="otro">Otro</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="puestos">Nº Puesto</label>
+          <div id="puestos-container">
+            <input type="text" value="1234">
+            <input type="text" value="4567">
+            <button type="button" id="add-puesto-btn" class="add-btn">+</button>
+          </div>
+        </div>
+        <div class="form-buttons">
+          <button type="button" id="deleteProfileBtn" class="delete-btn">Eliminar Perfil</button>
+          <button type="button" id="saveChangesBtn" class="save-btn">Guardar</button>
+        </div>
+      </form>
+    </div>
+
+
+  <!-- Modal para eliminar -->
+  <div id="deleteModal" class="modal hidden">
+    <div class="modal-content">
+      <p>¿Estás seguro de que quieres eliminar al socio?</p>
+      <button id="cancelDeleteBtn">Cancelar</button>
+      <button id="confirmDeleteBtn" class="confirm-btn">Eliminar Socio</button>
+    </div>
+  </div>
+
+  <!-- Modal para guardar cambios -->
+  <div id="saveModal" class="modal hidden">
+    <div class="modal-content">
+      <p>¿Desea guardar las modificaciones?</p>
+      <button id="cancelSaveBtn">Cancelar</button>
+      <button id="confirmSaveBtn" class="confirm-btn">Guardar</button>
+    </div>
+  </div>
+
+  <script src="../js/editar.js"></script>
+</body>
+</html>

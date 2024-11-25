@@ -1,257 +1,319 @@
 /* General reset */
- * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: Arial, sans-serif;
-    color: #333;
-    display: flex;
-    background-color: white;
-  }
-  
-  .main-container {
-    display: flex;
-    width: 100%;
-    height: 100vh;
-  }
-  
-  /* Sidebar */
-  .sidebar {
-    width: 20%;
-    background-color: white;
-    border-right: 1px solid #ddd;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  .sidebar .logo {
-    display: flex;
-    justify-content: center; /* Centra el logo horizontalmente */
-    align-items: center; /* Asegura que esté bien alineado */
-    margin-bottom: 0; /* Elimina cualquier espacio debajo del logo */
-  }
-  
-  .sidebar .logo img {
-    width: 300px;
-    height: auto;
-    margin-bottom: 0; /* Elimina margen extra */
-  }
-  
-  .sidebar .menu {
-    margin-top: 0; /* Elimina espacio entre el logo y el menú */
-    padding: 0; /* Asegura que no haya espacio adicional */
-  }
-  
-  .sidebar .menu ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .sidebar .menu-item {
-    display: flex;
-    align-items: center;
-    padding: 0.8rem; /* Espaciado para cada ítem */
-    cursor: pointer;
-    color: #333; /* Color del texto */
-    font-size: 1.2rem; /* Tamaño del texto */
-    transition: all 0.3s ease; /* Transición para hover */
-  }
-  
-  .sidebar .menu-item .menu-icon {
-    width: 30px; /* Tamaño fijo del contenedor del icono */
-    height: 30px;
-    margin-right: 1rem; /* Espaciado entre el icono y el texto */ 
-  }
-  
-  .sidebar .menu-item .menu-icon img {
-    width: 100%; /* Asegura que el icono se ajuste al contenedor */
-    height: auto;
-    transition: all 0.3s ease; /* Transición para el efecto hover */
-  }
-  
-  /* Efecto Hover */
-  .sidebar .menu-item:hover {
-    color: #61A6A0; /* Cambia el color del texto al pasar el puntero */
-  }
-  
-  .sidebar .menu-item:hover .menu-icon img {
-    filter: brightness(0.6); /* Cambia el brillo del icono */
-  }
-  
-  .sidebar .menu-item:hover span {
-    color: #61A6A0; /* Cambia el color del texto e icono al pasar el puntero */
-    font-weight: bold; /* Realza el texto */
-    transform: scale(1.05); /* Agranda ligeramente */
-  }
-  
-  /* Opción Activa */
-  .sidebar .menu-item.active {
-    font-weight: bold; /* Texto en negrita para la opción activa */
-    color: #61A6A0; /* Cambia el color del texto */
-  }
-  
-  .sidebar .menu-item.active .menu-icon img {
-    filter: brightness(0.6); /* Oscurece ligeramente el icono de la opción activa */
-  }
-  
-  .sidebar {
-    background-color: #fff; /* Fondo blanco para toda la barra lateral */
-  }
-    
-  .logout-btn {
-    background-color: #7b9e43;
-    color: white;
-    border: none;
-    padding: 0.8rem 1rem;
-    cursor: pointer;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  
-  .logout-btn:hover {
-    background-color: #6b8e3b;
-  }
-  
-  /* Content section */
-  .content {
-    width: 80%;
-    padding: 2rem;
-  }
-  
-  .content header h1 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-  }
-  
-  .actions {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.5rem;
-  }
-  
-  .create-btn {
-    background-color: #7b9e43;
-    color: white;
-    border: none;
-    padding: 0.8rem 1rem;
-    cursor: pointer;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  
-  .create-btn:hover {
-    background-color: #6b8e3b;
-  }
-  
-  .search-bar {
-    display: flex;
-    margin-bottom: 1rem;
-  }
-  
-  .search-bar input {
-    flex: 1;
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 5px 0 0 5px;
-  }
-  
-  .search-bar button {
-    background-color: #7b9e43;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    border-radius: 0 5px 5px 0;
-  }
-  
-  .search-bar button:hover {
-    background-color: #6b8e3b;
-  }
-  
-  /* Table styles */
-  .table-container {
-    overflow-x: auto;
-  }
-  
-  .socios-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .socios-table th, .socios-table td {
-    border: 1px solid #ddd;
-    padding: 0.5rem;
-    text-align: center;
-  }
-  
-  .socios-table th {
-    background-color: #f4f9fa;
-  }
-  
-  .socios-table td button {
-    margin: 0 0.2rem;
-    padding: 0.4rem;
-    border: none;
-    cursor: pointer;
-    color: white;
-    border-radius: 5px;
-  }
-  
-  .socios-table td .view-btn {
-    background-color: #3b8e3b;
-  }
-  
-  .socios-table td .edit-btn {
-    background-color: #3b6b8e;
-  }
-  
-  .socios-table td .delete-btn {
-    background-color: #8e3b3b;
-  }
-  
-  /* Modal */
-  .modal.hidden {
-    display: none;
-  }
-  
-  .modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .modal-content {
-    background: white;
-    padding: 2rem;
-    border-radius: 10px;
-    position: relative;
-  }
-  
-  .close-modal {
-    position: absolute;
-    top: 0.5rem;
-    right: 0.5rem;
-    background: transparent;
-    border: none;
-    font-size: 1.2rem;
-    cursor: pointer;
-  }
-  
+body {
+  font-family: Arial, sans-serif;
+  color: #333;
+  display: flex;
+  background-color: white;
+}
+
+.main-container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 20%;
+  background-color: white;
+  border-right: 1px solid #ddd;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/* Logo */
+.sidebar .logo {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem; /* Espaciado uniforme */
+}
+
+.sidebar .logo img {
+  width: 400px;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+/* Menú */
+.sidebar .menu {
+  width: 100%;
+}
+
+.sidebar .menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar .menu-item {
+  display: flex;
+  align-items: center;
+  padding: 0.8rem 1rem;
+  cursor: pointer;
+  color: #333;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  width: 100%;
+  border-radius: 5px;
+  margin-bottom: 1rem; /* Espaciado entre ítems */
+}
+
+.sidebar .menu-item:hover {
+  background-color: #f0f0f0;
+  color: #61A6A0;
+}
+
+.sidebar .menu-item.active {
+  background-color: #61A6A0;
+  color: white;
+}
+
+.sidebar .menu-item .menu-icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 1rem; /* Separación entre icono y texto */
+}
+
+.sidebar .menu-item .menu-icon img {
+  width: 100%;
+  height: auto;
+}
+
+/* Botón de cerrar sesión */
+.logout-btn {
+  width: 100%;
+  background-color: #7b9e43;
+  color: white;
+  border: none;
+  padding: 0.8rem 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: auto; /* Posicionar al final de la barra */
+}
+
+.logout-btn:hover {
+  background-color: #6b8e3b;
+}
+
+/* Content section */
+.content {
+  width: 80%;
+  padding: 2rem;
+}
+
+.content header h1 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.create-btn {
+  background-color: #7b9e43;
+  color: white;
+  border: none;
+  padding: 0.8rem 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.create-btn:hover {
+  background-color: #6b8e3b;
+}
+
+.search-bar {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px 0 0 5px;
+}
+
+.search-bar button {
+  background-color: #7b9e43;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 0 5px 5px 0;
+}
+
+.search-bar button:hover {
+  background-color: #6b8e3b;
+}
+
+/* Table styles */
+.table-container {
+  overflow-x: auto;
+}
+
+.socios-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.socios-table th, .socios-table td {
+  border: 1px solid #ddd;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.socios-table th {
+  background-color: #f4f9fa;
+}
+
+/* Modal */
+.modal.hidden {
+  display: none;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  position: relative;
+}
+
+.close-modal {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 400px; /* Ajustar el ancho */
+  max-width: 90%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow-y: auto; /* Para permitir scroll si es necesario */
+  max-height: 90vh; /* Limitar altura máxima */
+}
+
+.modal-content h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+  color: #333;
+}
+
+.modal-content form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* Espaciado uniforme entre los campos */
+}
+
+.modal-content form label {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #555;
+}
+
+.modal-content form input,
+.modal-content form select {
+  padding: 0.7rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 0.95rem;
+  width: 100%;
+}
+
+.modal-content form input:focus,
+.modal-content form select:focus {
+  outline: none;
+  border-color: #7b9e43;
+  box-shadow: 0 0 5px rgba(123, 158, 67, 0.5);
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}
+
+.modal-actions button {
+  padding: 0.7rem 1.2rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.modal-actions button#cancelarRegistro {
+  background-color: #ccc;
+  color: #333;
+  transition: background-color 0.3s;
+}
+
+.modal-actions button#cancelarRegistro:hover {
+  background-color: #bbb;
+}
+
+.modal-actions button[type="submit"] {
+  background-color: #7b9e43;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+.modal-actions button[type="submit"]:hover {
+  background-color: #6b8e3b;
+}
